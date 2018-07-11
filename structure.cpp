@@ -24,7 +24,7 @@ int main ()
   getline (cin,mystr);
   stringstream(mystr) >> yours.year;
 
-  cout << "My favorite movie is:\n ";
+  cout << "My favorite and greates movie is:\n ";
   printmovie (mine);
   cout << "And yours is:\n ";
   printmovie (yours);
