@@ -1,4 +1,4 @@
-// example about structures
+// example of structures
 #include <iostream>
 #include <string>
 #include <sstream>
