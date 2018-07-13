@@ -91,7 +91,7 @@ int main()
 	first.erase(first.end() -3, first.end());
 	printVectorMethod_2(first);
 /*TASK-END*/
-	
+
 	return 0;
 }
 
@@ -122,8 +122,8 @@ template <typename T>
 void printVectorMethod_2(const vector<T> v)
 {
 	cout<<"Method 2: ";
-															//The method .size() returns an usigned int with the number
-															//of elemets contained on the vector.
+//The method .size() returns an usigned int with the number
+//of elemets contained on the vector.
 	for(unsigned int h=0; h<v.size(); h++)
 															//.at(h) returns the value of the object on the h position.
 		cout<< "[" << v.at(h) << "] ";
