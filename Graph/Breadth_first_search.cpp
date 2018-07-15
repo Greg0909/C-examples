@@ -38,7 +38,7 @@ int main()
 															//the array index to know which element is refering the 1
 															//(visited) or 0 (not visited). An element or node cannot 
 															//be added to de deque if itas marked as visited.
-	bool visited[length] = {0,0,0,0,0};
+	bool visited[length];
 	int actual_node = 0;
 	nodeList.push_back(actual_node);
 															//The actual_node (in this case 0) is marked as visited.
