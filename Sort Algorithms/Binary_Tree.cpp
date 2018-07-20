@@ -2,6 +2,7 @@
 	Example of a Tree structure
 */
 # include <iostream>
+#include <queue>
 
 using namespace std;
                                                             //A tree has one root and can have 2 children and those 
@@ -9,6 +10,7 @@ using namespace std;
                                                             //on and on.
 struct Tree_Node
 {
+public:
                                                             //The two children, left and right.
 	Tree_Node *left, *right;
 	int data;
@@ -58,6 +60,93 @@ struct Tree_Node
 		if(right!=NULL)
 			right->inorder();
 	}
+
+	void print()
+	{
+		Tree_Node cn = *this;
+		queue<Tree_Node> st;
+		queue<Tree_Node> temp;
+		st.push(cn);
+		temp.push(cn);
+		int level=0;
+		int count=0;
+		while(!st.empty())
+		{
+			cout << cn.data << " ";
+			if(count>=level*4)
+			{
+				count=0;
+				++level;
+				cout<<endl;
+			}
+			if(cn.left!=NULL)
+			{
+				if(cn.data!=-1){
+					st.push(*cn.left);
+					temp.push(*cn.left);
+				}
+			}
+			else{
+				if(cn.data!=-1){
+				Tree_Node dum(-1);
+				st.push(dum);
+				temp.push(dum);
+			}
+			}
+
+			if(cn.right!=NULL)
+			{
+				if(cn.data!=-1){
+					st.push(*cn.right);
+					temp.push(*cn.right);
+				}
+			}
+			else{
+				if(cn.data!=-1){
+				Tree_Node dum(-1);
+				st.push(dum);
+				temp.push(dum);
+			}
+			}
+			count+=2;
+			st.pop();
+			cn = st.front();
+		}
+
+/*
+
+		int max_level = level;
+		cout<<max_level<<endl;
+		level =0;
+		count =0;
+		int espacios = 6*power(2,max_level);
+		while(!temp.empty())
+		{
+			for(int h=0; h<espacios/power(2,level+1)/2 -5 ; h++)
+					cout<<" ";
+			do
+			{
+				cout << temp.front().data;
+				temp.pop();
+				++count;
+				for(int h=0; h<espacios/power(2,level)/2 -1; h++)
+					cout<<" ";
+			}while(count < level*2);
+			++level;
+			cout<<endl;
+			count=0;
+		}
+*/
+	}
+
+	int power (int x, int pow) 
+	{ 
+		int temp=x;
+		for(int h=1; h<pow; h++)
+			temp*=temp;
+		return temp;
+	} 
+
 } ;
 
 int main()
@@ -75,5 +164,7 @@ int main()
 	}
 
 	root.inorder();
+	cout << "\n\n";
+	root.print();
 	return 0;
 }
